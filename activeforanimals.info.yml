@@ -10,7 +10,6 @@ dependencies:
   - breakpoint
   - ckeditor
   - config
-  - contact
   - contextual
   - dblog
   - dynamic_page_cache
@@ -29,5 +28,7 @@ dependencies:
   - views_ui
   # effective activism modules
   - effective_activism
+  # contrib modules
+  - honeypot
 themes:
   - seven
