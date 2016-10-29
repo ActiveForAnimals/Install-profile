@@ -1,0 +1,26 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the Active for Animals profile.
+ */
+
+define(HONEYPOTELEMENTNAME, 'username');
+
+/**
+ * Implements hook_install().
+ */
+function activeforanimals_install() {
+  // Allow visitor account creation with administrative approval.
+  $userSettings = \Drupal::configFactory()->getEditable('user.settings');
+  $userSettings->set('register', USER_REGISTER_VISITORS)->save(TRUE);
+
+  // Disable user time zones.
+  // This is required in order for events to register correct time.
+  $systemDate = \Drupal::configFactory()->getEditable('system.date');
+  $systemDate->set('timezone.user.configurable', 0)->save(TRUE);
+
+  // Setup honeypot.
+  $honeypotSettings = \Drupal::configFactory()->getEditable('honeypot.settings');
+  $honeypotSettings->set('element_name', HONEYPOTELEMENTNAME)->save(TRUE);
+  $honeypotSettings->set('form_settings.user_register_form', 1)->save(TRUE);
+}
