@@ -4,8 +4,6 @@
  * Install, update and uninstall functions for the Active for Animals profile.
  */
 
-define(HONEYPOTELEMENTNAME, 'username');
-
 /**
  * Implements hook_install().
  */
