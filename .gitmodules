@@ -1,0 +1,3 @@
+[submodule "modules/effective_activism"]
+	path = modules/effective_activism
+	url = https://github.com/EffectiveActivism/effective_activism
