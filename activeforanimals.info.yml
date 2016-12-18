@@ -28,7 +28,7 @@ dependencies:
   - views_ui
   # effective activism modules
   - effective_activism
-  # contrib modules
-  - honeypot
+  # custom modules
+  - afa_agarvenectarjar
 themes:
   - seven

@@ -4,16 +4,22 @@
  * Install, update and uninstall functions for the Active for Animals profile.
  */
 
+use Drupal\activeforanimals\Settings;
+
 /**
  * Implements hook_install().
  */
 function activeforanimals_install() {
   // Allow visitor account creation with administrative approval.
   $userSettings = \Drupal::configFactory()->getEditable('user.settings');
-  $userSettings->set('register', USER_REGISTER_VISITORS)->save(TRUE);
+  $userSettings->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
 
   // Disable user time zones.
   // This is required in order for events to register correct time.
   $systemDate = \Drupal::configFactory()->getEditable('system.date');
   $systemDate->set('timezone.user.configurable', 0)->save(TRUE);
+
+  // Setup the ea_location module.
+  $locationSettings = \Drupal::configFactory()->getEditable('ea_locations.settings');
+  $locationSettings->set('key', Settings::getGoogleAPIKey())->save(TRUE);
 }
