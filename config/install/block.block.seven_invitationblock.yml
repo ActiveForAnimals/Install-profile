@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ea_groupings
+  theme:
+    - seven
+id: invitationblock
+theme: seven
+region: highlighted
+weight: 0
+provider: null
+plugin: invitation_block
+settings:
+  id: invitation_block
+  label: 'Invitation block'
+  provider: ea_groupings
+  label_display: '0'
+visibility: {  }
